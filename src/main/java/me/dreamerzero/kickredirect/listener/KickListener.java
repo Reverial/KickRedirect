@@ -31,7 +31,7 @@ public final class KickListener {
         this.plugin = plugin;
     }
 
-    @Subscribe(order = PostOrder.EARLY)
+    @Subscribe(order = PostOrder.LATE)
     public void onKickFromServer(final KickedFromServerEvent event, final Continuation continuation){
         final Player player = event.getPlayer();
         if (shouldKick(player, event.getServer())) {
