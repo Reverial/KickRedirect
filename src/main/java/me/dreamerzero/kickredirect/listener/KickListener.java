@@ -83,9 +83,9 @@ public final class KickListener {
             .map(PlainTextComponentSerializer.plainText()::serialize);
 
         if (optional.isPresent()) {
-            final String message = optional.get();
+            final String message = optional.get().toLowerCase();
             for (final String msg : plugin.config().get().getMessagesToCheck()) {
-                if (message.contains(msg)) {
+                if (message.contains(msg.toLowerCase())) {
                     return plugin.config().get().checkMode() == CheckMode.WHITELIST;
                 }
             }
